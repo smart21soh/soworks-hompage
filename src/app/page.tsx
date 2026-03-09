@@ -1,4 +1,6 @@
+"use client";
 import React from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   return (
@@ -95,8 +97,14 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer style={{ padding: '30px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem' }}>
-        © {new Date().getFullYear()} My Portfolio. Built with Next.js.
+      <footer style={{ padding: '30px', textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem', display: 'flex', flexDirection: 'column', gap: '15px' }}>
+        <div>
+          <Link href="/privacy" style={{ textDecoration: 'underline', marginRight: '20px', transition: 'color 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-main)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>개인정보 보호정책</Link>
+          <Link href="/terms" style={{ textDecoration: 'underline', transition: 'color 0.3s ease' }} onMouseOver={(e) => e.currentTarget.style.color = 'var(--text-main)'} onMouseOut={(e) => e.currentTarget.style.color = 'var(--text-muted)'}>이용약관</Link>
+        </div>
+        <div>
+          © {new Date().getFullYear()} My Portfolio. Built with Next.js.
+        </div>
       </footer>
     </main>
   );
